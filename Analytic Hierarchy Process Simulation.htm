@@ -1386,7 +1386,8 @@
               const selector = values[i].name + "_" + values[j].name + "input";
               let con = connections.filter((c) => c.input === selector)[0];
               if (con) {
-                con.delta = parseInt(con.delta) + diff;
+                if(con.value1 === values[i].name) con.delta = parseInt(con.delta) + diff;
+                else con.delta = parseInt(con.delta) - diff;
               }
               if (!con) {
                 const selector =
